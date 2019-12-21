@@ -1,24 +1,13 @@
-![Screenshot](https://raw.githubusercontent.com/OmarElGabry/chat.io/master/public/img/chat.io.gif)
-
-# chat.io
-[![Dependency Status](https://www.versioneye.com/user/projects/57d746d1df40d0004a4a9e21/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57d746d1df40d0004a4a9e21)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/OmarElGabry/chat.io/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/OmarElGabry/chat.io/?branch=master)
-[![Code Climate](https://codeclimate.com/github/OmarElGabry/chat.io/badges/gpa.svg)](https://codeclimate.com/github/OmarElGabry/chat.io)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOmarElGabry%2Fchat.io.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FOmarElGabry%2Fchat.io?ref=badge_shield)
-
+# Hidden Gchat
 A Real Time Chat Application built using Node.js, Express, Mongoose, Socket.io, Passport, & Redis.
 
 ## Index
-+ [Demo](#demo)
 + [Features](#features)
 + [Installation](#installation)
 + [How It Works](#how-it-works)
 + [Support](#support)
 + [Contribute](#contribute)
 + [License](#license)
-
-## Demo<a name="demo"></a>
-Check [Demo](http://chatio.herokuapp.com/)
 
 ## Features<a name="features"></a>
 + Uses Express as the application Framework.
@@ -30,7 +19,6 @@ Check [Demo](http://chatio.herokuapp.com/)
 + Uses [MongoDB](https://github.com/mongodb/mongo), [Mongoose](https://github.com/Automattic/mongoose) and [MongoLab(mLab)](https://mlab.com/) for storing and querying data.
 + Stores session in a [MongoDB](https://github.com/mongodb/mongo) using [connect-mongo](https://github.com/kcbanner/connect-mongo); a MongoDB-based session store.
 + Uses [Redis](https://github.com/antirez/redis) as an Adapter for [Socket.io](https://github.com/socketio/socket.io).
-+ Logging Errors and Exceptions using [Winston](https://github.com/winstonjs/winston).
 
 ## Installation<a name="installation"></a>
 ### Running Locally
@@ -39,7 +27,7 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 1. Clone or Download the repository
 
 	```
-	$ git clone https://github.com/OmarElGabry/chat.io.git
+	$ git clone https://github.com/lekhanhtoan37/Chat-Web-Aplication
 	$ cd chat.io
 	```
 2. Install Dependencies
@@ -61,37 +49,6 @@ Make sure you have [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.co
 	```
 Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-### Deploying to Heroku
-Make sure you have the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
-
-1. Create a new Heroku application, and push your chat application to a Git remote repository
-
-	```
-	$ heroku create
-	$ git push heroku master
-	```
-	
-	or
-	
-	[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-2. Now, you need to set up configuration variables on Heroku. 
-	1. Go to Settings -> Reveal Config Vars.
-	2. Add configuration variables. All needed variables are inside _app/config/index.js_. 
-	Typically, these are the configuration variables you need to assign: 
-	```{ dbURI, sessionSecret, facebookClientID, facebookClientSecret, twitterConsumerKey, twitterConsumerSecret }```(see [Setup Configurations](#configurations)).
-
-3. One last step is to add [Redis](http://redis.io/) as an Add-on on Heroku.
-	1. Go to Resources -> Add-ons
-	2. Select Heroku Redis
-	> You need to setup a billing account even if the add-on is free.
-4. Open your chat application in the browser
-
-	```
-	$ heroku open
-	```
-
-
 
 ## How It Works<a name="how-it-works"></a>
 ### Setup Configurations<a name="configurations"></a>
@@ -99,26 +56,6 @@ The configurations on production will be assigned from Environment Variables on 
 
 #### MongoDB & MongoLab
 You need to create a database on MongoLab, then create a database user, get the `MongoDB URI`, and assign it to `dbURI`.
-
-#### Facebook & Twitter
-You need to register a new application on both Facebook and Twitter to get your tokens by which users can grant access to your application, and login using their social accounts.
-
-##### Registering the app on Facebook
-1. Go to [Facebook Developers](https://developers.facebook.com/)
-2. Add new app, and fill the required information.
-3. Get your `App ID`, `App Secret`.
-4. Go to Add Product -> Facebook Login -> Valid OAuth redirect URIs
-5. Add Valid Callback URIs
-6. Go to App Review -> Make your application public.
-
-Now, you can assign the `App ID` to `facebookClientID`, and `App Secret` to `facebookClientSecret`.
-##### Registering the app on Twitter
-1. Go to [Twitter Apps](https://apps.twitter.com/)
-2. Create new app, and fill the required information.
-3. Add Website & Callback URL
-4. Get your `Consumer Key`, `Consumer Secret`.
-
-Now, you can assign the `Consumer Key` to `twitterConsumerKey`, and `Consumer Secret` to `twitterConsumerSecret`.
 
 ##### The Callback URL
 - It can point back to your localhost; _[http://localhost:3000/auth/facebook/callback](http://localhost:3000/auth/facebook/callback)_
@@ -154,17 +91,3 @@ Having an active connection opened between the client and the server so client c
 The client starts by connecting to the server through a socket(maybe also assigned to a specific namespace). Once connections is successful, client and server can emit and listen to events. 
 
 There are two namespaces used; `/rooms` and `/chatroom`.
-
-### Logger<a name="logger"></a>
-And It doesn't go without saying, you need to monitor your application. [Winston](https://github.com/winstonjs/winston) can log and catch Uncaught Exceptions. All logs are displayed in the console, and saved in _debug.log_ file. 
-
-On Heroku, you can monitor the logs by clicking on _More -> View Logs_ on the top left of your application dashboard.
-
-## Support <a name="support"></a>
-I've written this script in my free time during my studies. If you find it useful, please support the project by spreading the word.
-
-## Contribute <a name="contribute"></a>
-
-Contribute by creating new issues, sending pull requests on Github or you can send an email at: omar.elgabry.93@gmail.com
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FOmarElGabry%2Fchat.io.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FOmarElGabry%2Fchat.io?ref=badge_large)
