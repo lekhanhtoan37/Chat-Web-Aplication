@@ -1,0 +1,15 @@
+{
+	"db": {
+		"username": "heroku_fg02rhwd",
+		"password": "nv4lqhta7g8atdbppncgfdud87",
+		"host": "ds125053.mlab.com",
+		"port": "25053",
+		"name": "heroku_fg02rhwd"
+	},
+	"sessionSecret": "<RandomString>",
+	"redis": {
+		"host": "ec2-3-210-107-30.compute-1.amazonaws.com",
+		"port": 13969,
+		"password": "pffbc3672c3c1eb48a9d0d45a7624de9e4ff3bee1448eaab93c4c96ffce49efd6"
+	}
+}
