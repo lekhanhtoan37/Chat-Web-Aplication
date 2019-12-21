@@ -1,5 +1,5 @@
 {
-  "name": "Hidden Gchat",
+  "name": "hiddengchat",
   "version": "1.0.0",
   "description": "A Real Time Chat Application built using Node.js, Express, Mongoose, Socket.io, Passport, & Redis.",
   "scripts": {
